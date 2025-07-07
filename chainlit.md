@@ -1,6 +1,6 @@
 # 📚 StudyBuddy.AI – Modular AI Study Assistant for Students
 
-**StudyBuddy.AI** is a modular, intelligent study companion tailored for computer science students. It automates learning tasks like summarization, code explanation, flashcards, and more using specialized AI agents.
+**StudyBuddy.AI** is a modular, intelligent study companion tailored for students. It automates learning tasks like summarization, code explanation, flashcards, and more using specialized AI agents.
 
 ---
 
