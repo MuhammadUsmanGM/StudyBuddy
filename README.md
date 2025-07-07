@@ -46,8 +46,8 @@ MIT License
 
 ## 🖥️ Interface
 
-![Interface](images/interface.png)
+![Interface](/images/Interface.png)
 
 ## 🚀 Output
 
-![Output](images/output.png)
+![Output](/images/Output.png)
