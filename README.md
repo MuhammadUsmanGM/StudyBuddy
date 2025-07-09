@@ -1,3 +1,6 @@
+[![Open StudyBuddy](https://img.shields.io/badge/Open_StudyBuddy-App-blue?style=for-the-badge&logo=openai)](https://studybuddy-production-b63e.up.railway.app/)
+
+
 # 📚 StudyBuddy.AI – Modular AI Study Assistant for Students
 
 **StudyBuddy.AI** is a modular, intelligent study companion tailored for students. It automates learning tasks like summarization, code explanation, flashcards, and more using specialized AI agents.
