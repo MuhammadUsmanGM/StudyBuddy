@@ -23,6 +23,7 @@ The system includes the following 9 agents:
 | `Math_Solver_Agent`         | Solves and explains math problems step-by-step.       |
 | `Code_Explainer_Agent`      | Explains and debugs source code in various languages. |
 | `Study_Schedular_Agent`     | Builds personalized study plans from goals/files.     |
+| `Research_Assistant_Agent`  | Summarizes credible sources for research.             |
 
 ---
 
