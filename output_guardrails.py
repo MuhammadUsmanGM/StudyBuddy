@@ -69,6 +69,7 @@ self_reference_agent = Agent(
     name="Self-Reference Guardrail",
     instructions="""
 Detect statements referring to the AI model itself (e.g., "As an AI model...").
+- But if user ask any question related to ai or something like that you should never trigger the guardrail
 Ignore developer debug logs or internal technical references.
 Return:
 - contains_self_reference: True/False
