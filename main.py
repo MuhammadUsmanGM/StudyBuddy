@@ -56,51 +56,57 @@ def chat_profile():
 async def starter():
     return [
         cl.Starter(
-            message = "Handoffs to Summarizer Agent.",
             label="Text Summarizer",
+            message="Meet your Summarizer – ready to condense content into clear summaries.",
             icon="/public/summarization.svg",
         ),
         cl.Starter(
-            label = "Concept Explainer",
-            message = "Handoffs to Concept_Explainer Agent.",
-            icon = "/public/discussion.svg"
+            label="Concept Explainer",
+            message="Need help understanding a topic? Your Concept Explainer is here to assist.",
+            icon="/public/discussion.svg",
         ),
         cl.Starter(
-            label = "Quiz Generator",
-            message = "Handoffs to Quiz Generator Agent.",
-            icon = "/public/quiz.svg",
+            label="Quiz Generator",
+            message="Ready to test your knowledge? Let the Quiz Generator create custom quizzes for you.",
+            icon="/public/quiz.svg",
         ),
         cl.Starter(
             label="Text Translator",
-            message = "Handoffs to Translator Agent.",
-            icon = "/public/translating.svg"
+            message="Your Translator is here – easily convert text between languages.",
+            icon="/public/translating.svg"
         ),
         cl.Starter(
             label="Definition Lookup",
-            message="Handoffs to Definition lookup agent.",
-            icon = "/public/definition.svg"
+            message="Quick definitions at your fingertips – your Definition Assistant is here.",
+            icon="/public/definition.svg"
         ),
         cl.Starter(
             label="Flashcard Generator",
-            message="Handoffs to flash card generator.",
-            icon = "/public/flash-card.svg",
+            message="Boost your memory with smart flashcards – generated just for you.",
+            icon="/public/flash-card.svg",
         ),
         cl.Starter(
-            label="Study Schedular",
-            message="Handoffs to study schedular agent.",
+            label="Study Scheduler",
+            message="Plan smarter, not harder – your Study Scheduler is ready to help.",
             icon="/public/time-management.svg",
         ),
         cl.Starter(
             label="Code Explainer",
-            message = "Handoffs to code explainer agent.",
+            message="Confused by code? The Code Explainer is here to break it down for you.",
             icon="/public/binary-code.svg",
         ),
         cl.Starter(
             label="Math Solver",
-            message="Handoffs to Math problem solver agent.",
-            icon= "/public/calculating.svg"
-        )
+            message="Tackle math problems with confidence – your Math Solver is ready.",
+            icon="/public/calculating.svg"
+        ),
+        cl.Starter(
+            label="Research Assistant",
+            message="Meet your Research Assistant – here to support your research needs.",
+            icon="/public/search.svg",
+        ),
     ]
+
 @cl.on_chat_start
 async def start():
     client = AsyncOpenAI(
@@ -273,6 +279,28 @@ async def start():
         handoff_description="Solves math problems with step-by-step reasoning, plotting, and support for algebra, calculus, linear algebra, and more.",
     )
 
+    research_assistant_agent = Agent(
+        name = "Research_Assistant",
+        instructions="""
+                Helps users gather, organize, and summarize high-quality research materials on a given topic.
+
+                Functionality:
+                - Accepts research queries as direct input or extracts topics from uploaded files (PDF, DOCX, TXT).
+                - Searches for credible academic sources, journal articles, reports, and authoritative websites.
+                - Summarizes key findings, arguments, or data from retrieved sources in clear, concise language.
+                - Can highlight pros/cons, gaps in research, or areas for further investigation.
+                - Organizes results thematically or chronologically if needed.
+                - Supports generating brief literature reviews or annotated bibliographies.
+                - Can cite sources in standard formats (APA, MLA, Chicago) upon request.
+                - Handles interdisciplinary topics by identifying relevant cross-domain materials.
+                - If file input contains specific instructions (e.g., focus questions, constraints), integrates them into the research.
+                - Politely requests clarification if the topic is too broad, vague, or lacks context.
+                Supported file types: `.pdf`, `.docx`, `.txt`
+                """,
+                model=model,
+                handoff_description="Finds and summarizes credible sources to support deep research.",
+    )
+
     agent = Agent(
         name="StudyBuddyAI",
         instructions="""You are a helpful and knowledgeable study assistant and uses available tools to give the most precise answers. 
@@ -301,7 +329,8 @@ async def start():
                   code_explainer_agent,
                   study_schedular_agent,
                   math_solver_agent,
-                  flashcard_generator_agent,],
+                  flashcard_generator_agent,
+                  research_assistant_agent,],
         tools=[developer_info],
         input_guardrails=[malicious_intent_guardrail],
         output_guardrails=[
