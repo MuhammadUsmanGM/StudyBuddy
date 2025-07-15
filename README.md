@@ -1,4 +1,4 @@
-[![Open StudyBuddy](https://img.shields.io/badge/Open_StudyBuddy-App-blue?style=for-the-badge&logo=openai)](https://studybuddy-production-b63e.up.railway.app/)
+[![Open StudyBuddy](https://img.shields.io/badge/Open_StudyBuddy-App-blue?style=for-the-badge&logo=openai)](https://studybuddy-production-2ccc.up.railway.app/)
 
 
 # 📚 StudyBuddy.AI – Modular AI Study Assistant for Students
